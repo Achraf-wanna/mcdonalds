@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+
 const produitSchema = new mongoose.Schema({
 
     name : {
@@ -29,5 +30,6 @@ const produitSchema = new mongoose.Schema({
 
 
 })
+
 
 module.exports = mongoose.model('produit', produitSchema)

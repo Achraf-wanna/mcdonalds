@@ -24,13 +24,13 @@ const commandeSchema = new mongoose.Schema({
     
     promocode : {
         type: String,
-        reference : 'promocode'
+        
     },
 
     cardfidele : {
         type: String,
-        reference : 'cardfidele'
-    },
+        
+    }
 
 
 })

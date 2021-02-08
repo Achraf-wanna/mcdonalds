@@ -16,7 +16,7 @@
     <title>BORNE DE COMMANDE | HOME</title>
 </head>
 <body onload="translate()">
-    <a href="#location">
+    <a href="#payment">
         <div class="home">
                 <div>
                     <button onclick="getLang('fr')" style="background: none; border: none; outline: none;">
@@ -35,34 +35,37 @@
     </a>
 
 
-    <div class="container-fluid location d-flex flex-column align-items-center justify-content-around" id="location">
-        <div class="row">
-            <h1 class="din-loc-title lang" key="dining"></h1>
-        </div>
-        <div class="row dinning-opt d-flex justify-content-around">
-            <a href="#payment" class="col-sm-4 card-opt d-flex flex-column align-items-center justify-content-around">
-                    <img src="/img/icon1.png" alt="">
-                    <h2 class="lang" key="in"></h2>
-            </a>
-            <a href="#payment" class="col-sm-4 card-opt d-flex flex-column align-items-center justify-content-around">
-                    <img src="/img/icon2.png" alt="">
-                    <h2 class="lang" key="out"></h2>
-            </a>
-        </div>
-    </div>
 
      <div class="container-fluid location d-flex flex-column align-items-center justify-content-center" id="payment">
-        <a href="#location" class="return lang" key="back"></a>
+        
 
         <div class="row">
             <h1 class="lang" key="payement"></h1>
         </div>
-        <div class="row dinning-opt d-flex justify-content-around">
-            <a href="category.html" class="col-sm-4 pay-opt d-flex align-items-center justify-content-center">
+        <div class="row dinning-opt d-flex justify-content-around" id="pay">
+            <a href="#location" class="col-sm-4 pay-opt d-flex align-items-center justify-content-center">
                 <h3 class="lang" key="cash"></h2>
             </a>
-            <a href="category.html" class="col-sm-4 pay-opt d-flex  align-items-center justify-content-center">
-                <h3 class="lang" key="cc"></h2>
+            <a class="col-sm-4 pay-opt d-flex  align-items-center justify-content-center flex-column">
+                <h3 class="lang" key="cc" style="margin: 0; padding: 0;"></h2>
+                <p style="margin: 0; padding: 0; color: red;">*Unavailable</p>
+            </a>
+        </div>
+    </div>
+
+    <div class="container-fluid location d-flex flex-column align-items-center justify-content-around" id="location">
+        <a href="#payment" class="return lang" key="back"></a>
+        <div class="row">
+            <h1 class="din-loc-title lang" key="dining"></h1>
+        </div>
+        <div class="row dinning-opt d-flex justify-content-around">
+            <a href="category.html?loc=in" class="col-sm-4 card-opt d-flex flex-column align-items-center justify-content-around">
+                    <img src="/img/icon1.png" alt="">
+                    <h2 class="lang" key="in"></h2>
+            </a>
+            <a href="category.html?loc=out" class="col-sm-4 card-opt d-flex flex-column align-items-center justify-content-around">
+                    <img src="/img/icon2.png" alt="">
+                    <h2 class="lang" key="out"></h2>
             </a>
         </div>
     </div>

@@ -16,7 +16,7 @@ const promocodeSchema = new mongoose.Schema({
     is_valid : {
         type: Boolean,
         required: true
-    },
+    }
 
 
 })

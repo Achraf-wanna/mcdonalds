@@ -214,3 +214,11 @@ body::-webkit-scrollbar-thumb {
     border-radius: 10px;
     margin: 30px 0;
 }
+
+#extra p{
+    font-size: 25px;
+}
+
+.extraname{
+    font-size: 30px;
+}

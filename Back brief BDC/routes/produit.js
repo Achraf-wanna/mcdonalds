@@ -3,6 +3,7 @@ const router = express.Router()
 const produit = require('../models/produit')
 
 
+
 //all products
 router.get('/' , async (req, res) => {
     try {
@@ -13,6 +14,9 @@ router.get('/' , async (req, res) => {
        res.status(500).json({ message: err.message })
    }
 })
+
+
+
 //one product
 router.get('/:id' , getproduit , (req, res) => {
    res.json(res.produits)
