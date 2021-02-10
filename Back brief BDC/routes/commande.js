@@ -3,6 +3,7 @@ const router = express.Router()
 const commande = require('../models/commande')
 const logs = require('../models/logs');
 const log = require('../log');
+const {saveLog} = require('../localLog')
 
 
 //all products
@@ -10,6 +11,7 @@ router.get('/' , async (req, res) => {
     try {
        const commandes = await commande.find()
        res.json(commandes)
+       saveLog("Get all Commandes","info","/commande/");
        log({
         file: 'commande.js',
         line: '12',
@@ -17,7 +19,7 @@ router.get('/' , async (req, res) => {
         type: 'info'
     }, logs);
    } catch (err) {
-       
+       saveLog(err.message,"critical","/commande/")
        res.status(500).json({ message: err.message })
        log({
         file: 'commande.js',
@@ -45,6 +47,7 @@ router.post('/', async (req, res) => {
    try {
        const newcommande = await commandes.save()
        res.status(201).json(newcommande)
+       saveLog("Post Commande","info","/commande/")
        log({
         file: 'commande.js',
         line: '47',
@@ -54,6 +57,7 @@ router.post('/', async (req, res) => {
        
    } catch (err) {
        res.status(400).json({ message: err.message })
+       saveLog(err.message,"critical","/commande/")
        log({
         file: 'commande.js',
         line: '56',
@@ -92,6 +96,7 @@ if (req.body.cardfidele != null) {
    try {
        const updatedcommande = await res.commandes.save()
        res.json(updatedcommande)
+       saveLog("Patch Commande","info","/commande/id")
        log({
         file: 'commande.js',
         line: '94',
@@ -100,6 +105,7 @@ if (req.body.cardfidele != null) {
     }, logs);
 
    } catch (err) {
+       saveLog(err.message,"critical","/commande/")
        res.status(400).json({ message: err.message })
        log({
         file: 'commande.js',
@@ -117,6 +123,7 @@ router.delete('/:id' , getcommande , async (req, res) => {
 
        await res.commandes.remove()
        res.json({ message: 'Deleted Succesfully' })
+       saveLog("Delete commande","info","/commande/")
        log({
         file: 'commande.js',
         line: '119',
@@ -124,6 +131,7 @@ router.delete('/:id' , getcommande , async (req, res) => {
         type: 'info'
     }, logs);
    } catch (err) {
+    saveLog(err.message,"critical","/commande/")
        res.status(500).json({ message: err.message })
        log({
         file: 'commande.js',

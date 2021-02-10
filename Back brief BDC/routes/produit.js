@@ -6,11 +6,14 @@ const log = require('../log');
 
 
 
+
+
 //all products
 router.get('/' , async (req, res) => {
     try {
        const produits = await produit.find()
        res.json(produits)
+       
        log({
         file: 'produit.js',
         line: '13',
