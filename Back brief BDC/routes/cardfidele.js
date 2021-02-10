@@ -1,8 +1,6 @@
 const express = require('express')
 const router = express.Router()
 const cardfidele = require('../models/cardfidele')
-const logs = require('../models/logs');
-const log = require('../log');
 
 
 //all promocodes
@@ -10,22 +8,9 @@ router.get('/' , async (req, res) => {
     try {
        const cardfideles = await cardfidele.find()
        res.json(cardfideles)
-       log({
-        file: 'cardfidele.js',
-        line: '12',
-        info: 'Get all cards',
-        type: 'info'
-    }, logs);
-    res.sendStatus(500);
    } catch (err) {
        
        res.status(500).json({ message: err.message })
-       log({
-        file: 'cardfidele.js',
-        line: '22',
-        info: err,
-        type: 'Critical'
-    }, logs);
    }
 })
 //one promocode
@@ -41,21 +26,9 @@ router.post('/', async (req, res) => {
    try {
        const newcardfidele = await cardfideles.save()
        res.status(201).json(newcardfidele)
-       log({
-        file: 'cardfidele.js',
-        line: '43',
-        info: 'Post Card',
-        type: 'info'
-    }, logs);
        
    } catch (err) {
        res.status(400).json({ message: err.message })
-       log({
-        file: 'cardfidele.js',
-        line: '52',
-        info: err,
-        type: 'Critical'
-    }, logs);
        
    }
 
@@ -74,23 +47,9 @@ router.patch('/:id' , getcardfidele , async (req, res) => {
    try {
        const updatedcardfidele = await res.cardfideles.save()
        res.json(updatedcardfidele)
-       log({
-        file: 'cardfidele.js',
-        line: '76',
-        info: 'Patch one card',
-        type: 'info'
-    }, logs);
-
 
    } catch (err) {
        res.status(400).json({ message: err.message })
-       log({
-        file: 'cardfidele.js',
-        line: '86',
-        info: err,
-        type: 'Critical'
-    }, logs);
-       
        
    }
 
@@ -101,20 +60,8 @@ router.delete('/:id' , getcardfidele , async (req, res) => {
 
        await res.cardfideles.remove()
        res.json({ message: 'Deleted Succesfully' })
-       log({
-        file: 'cardfidele.js',
-        line: '103',
-        info: 'Delete one card',
-        type: 'info'
-    }, logs);
    } catch (err) {
        res.status(500).json({ message: err.message })
-       log({
-        file: 'cardfidele.js',
-        line: '111',
-        info: err,
-        type: 'Critical'
-    }, logs);
        
    }
 
@@ -134,7 +81,6 @@ async function getcardfidele(req, res, next) {
    } catch (err) {
        
        return res.status(500).json({ message: err.message })
-       
    }
 
    res.cardfideles = cardfideles

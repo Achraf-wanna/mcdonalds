@@ -1,8 +1,6 @@
 const express = require('express')
 const router = express.Router()
 const subcategory = require('../models/subcategory')
-const logs = require('../models/logs');
-const log = require('../log');
 
 
 //all subcategories
@@ -10,21 +8,9 @@ router.get('/' , async (req, res) => {
     try {
        const subcategories = await subcategory.find()
        res.json(subcategories)
-       log({
-        file: 'subcategory.js',
-        line: '12',
-        info: 'Get all subcategories',
-        type: 'info'
-    }, logs);
    } catch (err) {
        
        res.status(500).json({ message: err.message })
-       log({
-        file: 'subcategory.js',
-        line: '21',
-        info: err,
-        type: 'Critical'
-    }, logs);
    }
 })
 //one subcategories
@@ -38,21 +24,9 @@ router.get('/findsubCatByCatId/:catid', async (req,res) => {
     try{
         const subcategories = await subcategory.find({}).where('catid').equals(req.params.catid)
         res.send(subcategories)
-        log({
-            file: 'subcategory.js',
-            line: '40',
-            info: 'Get subcategory by category id',
-            type: 'info'
-        }, logs);
        
     } catch (err) {
         res.status(500).json({ message: err.message})
-        log({
-            file: 'subcategory.js',
-            line: '49',
-            info: err,
-            type: 'Critical'
-        }, logs);
        
     }
 })
@@ -67,21 +41,9 @@ router.post('/', async (req, res) => {
    try {
        const newsubcategory = await subcategories.save()
        res.status(201).json(newsubcategory)
-       log({
-        file: 'subcategory.js',
-        line: '69',
-        info: 'Post subcategory',
-        type: 'info'
-    }, logs);
        
    } catch (err) {
        res.status(400).json({ message: err.message })
-       log({
-        file: 'subcategory.js',
-        line: '78',
-        info: err,
-        type: 'Critical'
-    }, logs);
        
    }
 
@@ -104,21 +66,9 @@ router.patch('/:id' , getsubcategory , async (req, res) => {
    try {
        const updatedsubcategory = await res.subcategories.save()
        res.json(updatedsubcategory)
-       log({
-        file: 'subcategory.js',
-        line: '106',
-        info: 'Patch  subcategory',
-        type: 'info'
-    }, logs);
 
    } catch (err) {
        res.status(400).json({ message: err.message })
-       log({
-        file: 'subcategory.js',
-        line: '115',
-        info: err,
-        type: 'Critical'
-    }, logs);
        
    }
 
@@ -129,20 +79,8 @@ router.delete('/:id' , getsubcategory , async (req, res) => {
 
        await res.subcategories.remove()
        res.json({ message: 'Deleted Succesfully' })
-       log({
-        file: 'subcategory.js',
-        line: '131',
-        info: 'Delete subcategory',
-        type: 'info'
-    }, logs);
    } catch (err) {
        res.status(500).json({ message: err.message })
-       log({
-        file: 'subcategory.js',
-        line: '139',
-        info: err,
-        type: 'Critical'
-    }, logs);
        
    }
 

@@ -1,8 +1,6 @@
 const express = require('express')
 const router = express.Router()
 const extra = require('../models/extra')
-const logs = require('../models/logs');
-const log = require('../log');
 
 
 //all extras
@@ -10,21 +8,9 @@ router.get('/' , async (req, res) => {
     try {
        const extras = await extra.find()
        res.json(extras)
-       log({
-        file: 'extra.js',
-        line: '12',
-        info: 'Get all ingrediants',
-        type: 'info'
-    }, logs);
    } catch (err) {
        
        res.status(500).json({ message: err.message })
-       log({
-        file: 'extra.js',
-        line: '21',
-        info: err,
-        type: 'Critical'
-    }, logs);
    }
 })
 //one extra
@@ -41,23 +27,9 @@ router.post('/', async (req, res) => {
    try {
        const newextra = await extras.save()
        res.status(201).json(newextra)
-       res.json(extras)
-       log({
-        file: 'extra.js',
-        line: '43',
-        info: 'Post ingrediant',
-        type: 'info'
-    }, logs);
        
    } catch (err) {
        res.status(400).json({ message: err.message })
-       res.json(extras)
-       log({
-        file: 'extra.js',
-        line: '53',
-        info: err,
-        type: 'Critical'
-    }, logs);
        
    }
 
@@ -76,23 +48,9 @@ router.patch('/:id' , getextra , async (req, res) => {
    try {
        const updatedextra = await res.extras.save()
        res.json(updatedextra)
-       res.json(extras)
-       log({
-        file: 'extra.js',
-        line: '78',
-        info: 'Patch ingrediant',
-        type: 'info'
-    }, logs);
 
    } catch (err) {
        res.status(400).json({ message: err.message })
-       res.json(extras)
-       log({
-        file: 'extra.js',
-        line: '88',
-        info: err,
-        type: 'Critical'
-    }, logs);
        
    }
 
@@ -103,22 +61,8 @@ router.delete('/:id' , getextra , async (req, res) => {
 
        await res.extras.remove()
        res.json({ message: 'Deleted Succesfully' })
-       res.json(extras)
-       log({
-        file: 'extra.js',
-        line: '105',
-        info: 'Delete ingrediant',
-        type: 'info'
-    }, logs);
    } catch (err) {
        res.status(500).json({ message: err.message })
-       res.json(extras)
-       log({
-        file: 'extra.js',
-        line: '114',
-        info: err,
-        type: 'Critical'
-    }, logs);
        
    }
 

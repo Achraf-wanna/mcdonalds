@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="css.css">
+    <title>Dashboard - Product</title>
+</head>
+<body onload="loadproducts()">
+
+    <div class="navigation">
+
+        <ul>
+            <center>
+                <a href=""> 
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/McDonald%27s_Golden_Arches.svg" alt="Mc" width="120px">
+                </a>
+            </center>
+
+
+            <li>
+                <a href="/category.html">
+                    <span class="icon"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                    <span class="title">Add Category</span>
+                </a>
+
+            </li>
+            <li>
+                <a href="/subcategory.html">
+                    <span class="icon"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                    <span class="title">Add Subcategory</span>
+                </a>
+
+            </li>
+            <li>
+                <a href="/product.html">
+                    <span class="icon"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                    <span class="title">Add Product</span>
+                </a>
+
+            </li>
+            <li>
+                <a href="/promocode.html">
+                    <span class="icon"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                    <span class="title">Add Promocode</span>
+                </a>
+
+            </li>
+        </ul>
+    </div>
+<style>
+    /* Sidebar */
+
+.navigation{
+position: fixed;
+width: 300px;
+height: 100%;
+
+background-color: black;
+transition: 0.5s;
+}
+
+.navigation ul{
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+}
+.navigation ul li {
+position: relative;
+width: 100%;
+list-style: none;
+}
+.navigation ul li:hover{
+background: #d3f0e2;
+}
+
+.navigation ul li a {
+position: relative;
+display: block;
+width: 100%;
+display: flex;
+text-decoration: none;
+color: white;
+}
+.navigation ul li a .icon{
+position: relative;
+display: block;
+min-width: 60px;
+height: 60px;
+line-height:60px;
+text-align: center;
+}
+.navigation ul li a .icon .fa {
+font-size: 30px;
+}
+.navigation ul li a .title{
+position: relative;
+display: block;
+padding:0 10px;
+height: 60px;
+line-height:60px;
+text-align: start;
+white-space: nowrap;
+}
+
+</style>
+
+    <div id="alladdproduct">
+        <input type="text" name="productname" id="productname" placeholder="Product Name">
+        <input type="text" name="productprice" id="productprice" placeholder="Product Price">
+        <input type="text" name="productimg" id="productimg" placeholder="Product image">
+        <select name="selectdesubcategory" id="selectdesubcategory">
+
+        </select>
+        <select name="selectextra" id="selectextra">
+
+        </select>
+        <button class="btn btn-success" type="submit" onclick="sendproduit()" >Submit</button>
+    </div>
+    <table id="tabledes" cellpadding=10;>
+        <thead>
+
+        </thead>
+        <tbody id="productstable">
+            
+        </tbody>
+    </table>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" ></script>
+</body>
+</html>

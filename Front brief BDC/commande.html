@@ -32,87 +32,18 @@
                     <h1 id="productName"></h1>
                 </div>
                 <div class="row categ d-flex justify-content-center" id="oneProduct"></div>
-                <div class="row">
-                <div class="col"></div>
-                </div>
-                <div id="extra"></div>
-                <div class="row text-center">
-                    <div class="col-2"><label for="" class="lang" key="extra"></label></div>
-                    <div class="col"><select class="form-control" id="supp"></select></div>
-                    <div class="col-1"><input type="text" id="extraQ" class="form-control" value="1"></div>
-                    <div class="col"><button onclick="getExtras()" class="btn btn-success lang" key="addExtra"></button></div>
-
-                </div>
-                <div class="row text-center mt-5">
-                    <div class="col-2"><label for="" class="lang" key="prodQuantity"></label></div>
-                    <div class="col-1"><input type="number" id="quantity" class="form-control" value="1"></div>
-                </div>
-                <div class="row text-center mt-5">
-                    <div class="col-2"><label for="" class="lang" key="tableServ"></label></div>
-                    <div class="col-1"><select class="form-control" name="" id="ServTable">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                    </select></div>
-                </div>
-                <div class="row text-center mt-5">
-                    <div class="col-2"><label for="" class="lang" key="promoCode">Code Promo : </label></div>
-                    <div class="col-4"><input type="text" id="codePromo" class="form-control" ><p id="promoValid"></p></div>
-                    <div class="col"><button onclick="checkPromo()" class="btn btn-success lang" key="check"></button></div>
-                </div>
-                <div class="row text-center mt-5">
-                    <div class="col-2"><label for="" class="lang" key="fideleCode"> </label></div>
-                    <div class="col-4"><input type="text" id="carteF" class="form-control" ><p id="fideleValid"></p></div>
-                    <div class="col"><button onclick="checkFidele()" class="btn btn-success lang" key="check"></button></div>
-                </div>
-                <div class="row text-center mt-5">
-                    <div class="col"><button onclick="checkOut()" class="btn btn-primary" data-mdb-toggle="modal"
-                        data-mdb-target="#exampleModal">Check out</button></div>
-                </div>
                 
-
+                <div id="extra"></div>
+                <div id="total"></div>
+                <label for="">Supplémentaire : </label>
+                <select name="" id="supp"></select>
+                <input type="text" id="extraQ" value="1">
+                <button onclick="getExtras()"> Add extra</button>
+                <button onclick="checkOut()">Checkout</button>
 
             </div>
         </div>
     </div>
-
-    <!-- Modal -->
-<div
-class="modal fade"
-id="exampleModal"
-tabindex="-1"
-aria-labelledby="exampleModalLabel"
-aria-hidden="true"
->
-<div class="modal-dialog">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title lang" id="exampleModalLabel" key="congrats"></h5>
-      <button
-        type="button"
-        class="btn-close"
-        data-mdb-dismiss="modal"
-        aria-label="Close"
-      ></button>
-    </div>
-    <div class="modal-body lang" key="effectuer"></div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-secondary lang" key="close" data-mdb-dismiss="modal" onclick="window.location.href = 'home.html'">
-        Close
-      </button>
-     
-    </div>
-  </div>
-</div>
-</div>
-
 
 
     <!-- MDB -->

@@ -1,0 +1,44 @@
+body {
+    background-color: black;
+}
+
+#Promocodestable {
+
+    color: aliceblue;
+}
+
+
+#catTable {
+
+    color: aliceblue;
+}
+
+
+#subcatTable {
+
+    color: aliceblue;
+}
+
+
+#productstable {
+
+    color: aliceblue;
+}
+
+#alladd {
+    margin-left: 30%;
+    margin-top: 6px;
+}
+
+#alladdproduct {
+
+    margin-left: 20%;
+    margin-top: 6px;
+}
+
+#tabledes {
+
+    margin-left: 40%;
+    margin-top: 15%;
+    width: 60%;
+}
