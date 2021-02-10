@@ -1,6 +1,8 @@
 const express = require('express')
 const router = express.Router()
 const commande = require('../models/commande')
+const logs = require('../models/logs');
+const log = require('../log');
 
 
 //all products
@@ -8,9 +10,21 @@ router.get('/' , async (req, res) => {
     try {
        const commandes = await commande.find()
        res.json(commandes)
+       log({
+        file: 'commande.js',
+        line: '12',
+        info: 'Get all Commandes',
+        type: 'info'
+    }, logs);
    } catch (err) {
        
        res.status(500).json({ message: err.message })
+       log({
+        file: 'commande.js',
+        line: '21',
+        info: err,
+        type: 'Critical'
+    }, logs);
    }
 })
 //one product
@@ -31,9 +45,21 @@ router.post('/', async (req, res) => {
    try {
        const newcommande = await commandes.save()
        res.status(201).json(newcommande)
+       log({
+        file: 'commande.js',
+        line: '47',
+        info: 'Post commande',
+        type: 'info'
+    }, logs);
        
    } catch (err) {
        res.status(400).json({ message: err.message })
+       log({
+        file: 'commande.js',
+        line: '56',
+        info: err,
+        type: 'Critical'
+    }, logs);
        
    }
 
@@ -66,9 +92,21 @@ if (req.body.cardfidele != null) {
    try {
        const updatedcommande = await res.commandes.save()
        res.json(updatedcommande)
+       log({
+        file: 'commande.js',
+        line: '94',
+        info: 'Patch commande',
+        type: 'info'
+    }, logs);
 
    } catch (err) {
        res.status(400).json({ message: err.message })
+       log({
+        file: 'commande.js',
+        line: '103',
+        info: err,
+        type: 'Critical'
+    }, logs);
        
    }
 
@@ -79,8 +117,20 @@ router.delete('/:id' , getcommande , async (req, res) => {
 
        await res.commandes.remove()
        res.json({ message: 'Deleted Succesfully' })
+       log({
+        file: 'commande.js',
+        line: '119',
+        info: 'Delete commande',
+        type: 'info'
+    }, logs);
    } catch (err) {
        res.status(500).json({ message: err.message })
+       log({
+        file: 'commande.js',
+        line: '127',
+        info: err,
+        type: 'Critical'
+    }, logs);
        
    }
 

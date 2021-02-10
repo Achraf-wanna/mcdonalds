@@ -1,15 +1,29 @@
 const express = require('express')
 const router = express.Router()
 const category = require('../models/category')
+const logs = require('../models/logs');
+const log = require('../log');
 
 //all categories
 router.get('/' , async (req, res) => {
      try {
         const categories = await category.find()
         res.json(categories)
+        log({
+            file: 'category.js',
+            line: '9',
+            info: 'Get all Categories',
+            type: 'info'
+        }, logs);
     } catch (err) {
         
         res.status(500).json({ message: err.message })
+        log({
+            file: 'category.js',
+            line: '18',
+            info: err,
+            type: 'Critical'
+        }, logs);
     }
 })
 //one categories
@@ -25,9 +39,21 @@ router.post('/', async (req, res) => {
     try {
         const newcategory = await categories.save()
         res.status(201).json(newcategory)
+        log({
+            file: 'category.js',
+            line: '39',
+            info: 'Post category',
+            type: 'info'
+        }, logs);
         
     } catch (err) {
         res.status(400).json({ message: err.message })
+        log({
+            file: 'category.js',
+            line: '48',
+            info: err,
+            type: 'Critical'
+        }, logs);
         
     }
 
@@ -46,9 +72,21 @@ router.patch('/:id' , getcategory , async (req, res) => {
     try {
         const updatedcategory = await res.categories.save()
         res.json(updatedcategory)
+        log({
+            file: 'category.js',
+            line: '72',
+            info: 'Patch one category',
+            type: 'info'
+        }, logs);
 
     } catch (err) {
         res.status(400).json({ message: err.message })
+        log({
+            file: 'category.js',
+            line: '81',
+            info: err,
+            type: 'Critical'
+        }, logs);
         
     }
 
@@ -59,8 +97,20 @@ router.delete('/:id' , getcategory , async (req, res) => {
 
         await res.categories.remove()
         res.json({ message: 'Deleted Succesfully' })
+        log({
+            file: 'category.js',
+            line: '12',
+            info: 'Delete one category',
+            type: 'info'
+        }, logs);
     } catch (err) {
         res.status(500).json({ message: err.message })
+        log({
+            file: 'category.js',
+            line: '12',
+            info: err,
+            type: 'Critical'
+        }, logs);
         
     }
 

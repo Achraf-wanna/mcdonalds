@@ -1,6 +1,8 @@
 const express = require('express')
 const router = express.Router()
 const produit = require('../models/produit')
+const logs = require('../models/logs');
+const log = require('../log');
 
 
 
@@ -9,9 +11,21 @@ router.get('/' , async (req, res) => {
     try {
        const produits = await produit.find()
        res.json(produits)
+       log({
+        file: 'produit.js',
+        line: '13',
+        info: 'Get all Products',
+        type: 'info'
+    }, logs);
    } catch (err) {
        
        res.status(500).json({ message: err.message })
+       log({
+        file: 'produit.js',
+        line: '22',
+        info: err,
+        type: 'Critical'
+    }, logs);
    }
 })
 
@@ -27,9 +41,21 @@ router.get('/findProdBySubId/:subcatid', async (req,res) => {
     try{
         const produits = await produit.find({}).where('subcatid').equals(req.params.subcatid)
         res.send(produits)
+        log({
+            file: 'produit.js',
+            line: '43',
+            info: 'Get product by subcategory id',
+            type: 'info'
+        }, logs);
        
     } catch (err) {
         res.status(500).json({ message: err.message})
+        log({
+            file: 'produit.js',
+            line: '52',
+            info: err,
+            type: 'Critical'
+        }, logs);
        
     }
 })
@@ -46,9 +72,21 @@ router.post('/', async (req, res) => {
    try {
        const newproduit = await produits.save()
        res.status(201).json(newproduit)
+       log({
+        file: 'produit.js',
+        line: '74',
+        info: 'Post product',
+        type: 'info'
+    }, logs);
        
    } catch (err) {
        res.status(400).json({ message: err.message })
+       log({
+        file: 'produit.js',
+        line: '83',
+        info: err,
+        type: 'Critical'
+    }, logs);
        
    }
 
@@ -75,9 +113,21 @@ router.patch('/:id' , getproduit , async (req, res) => {
    try {
        const updatedproduit = await res.produits.save()
        res.json(updatedproduit)
+       log({
+        file: 'produit.js',
+        line: '115',
+        info: 'Patch product',
+        type: 'info'
+    }, logs);
 
    } catch (err) {
        res.status(400).json({ message: err.message })
+       log({
+        file: 'produit.js',
+        line: '124',
+        info: err,
+        type: 'Critical'
+    }, logs);
        
    }
 
@@ -88,8 +138,20 @@ router.delete('/:id' , getproduit , async (req, res) => {
 
        await res.produits.remove()
        res.json({ message: 'Deleted Succesfully' })
+       log({
+        file: 'produit.js',
+        line: '140',
+        info: 'Delete product',
+        type: 'info'
+    }, logs);
    } catch (err) {
        res.status(500).json({ message: err.message })
+       log({
+        file: 'produit.js',
+        line: '148',
+        info: err,
+        type: 'Critical'
+    }, logs);
        
    }
 

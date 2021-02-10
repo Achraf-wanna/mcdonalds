@@ -2,6 +2,9 @@ const express = require('express')
 const router = express.Router()
 const PDFDocument = require("pdfkit");
 const fs = require("fs");
+const logs = require('../models/logs');
+const log = require('../log');
+
 
 router.post('/', (req,res) =>{
 
@@ -69,8 +72,22 @@ router.post('/', (req,res) =>{
         res.status(200).json({
             message : 'Ticket generated'
         })
+
+        log({
+            file: 'exportTicket.js',
+            line: '72',
+            info: 'Print ticket',
+            type: 'info'
+        }, logs);
+        
     } catch (error) {
         console.log(error);
+        log({
+            file: 'exportTicket.js',
+            line: '84',
+            info: error,
+            type: 'Critical'
+        }, logs);
     }
        
 })
