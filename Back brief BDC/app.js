@@ -8,6 +8,7 @@ var cors = require('cors')
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header("Access-Control-Allow-Methods", "GET,DELETE,PUT,PATCH,POST");
   next();
 });
 
@@ -18,6 +19,7 @@ const extraRouter = require('./routes/extra')
 const commandeRouter = require('./routes/commande')
 const promocodeRouter = require('./routes/promocode')
 const cardfideleRouter = require('./routes/cardfidele')
+const exportTicketRouter = require('./routes/exportTicket')
 
 //db
 mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true})
@@ -36,6 +38,7 @@ app.use('/extra' , extraRouter)
 app.use('/commande' , commandeRouter)
 app.use('/promocode' , promocodeRouter)
 app.use('/cardfidele' , cardfideleRouter)
+app.use('/exportTicket',exportTicketRouter)
 
 
 

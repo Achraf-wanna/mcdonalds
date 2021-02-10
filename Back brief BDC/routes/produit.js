@@ -40,7 +40,8 @@ router.post('/', async (req, res) => {
        name: req.body.name,
        price: req.body.price,
        img: req.body.img,
-       subcatid: req.body.subcatid
+       subcatid: req.body.subcatid,
+       extraid: req.body.extraid
    })
    try {
        const newproduit = await produits.save()

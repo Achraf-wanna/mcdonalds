@@ -37,11 +37,11 @@ router.post('/', async (req, res) => {
 //updating promocode
 router.patch('/:id' , getcardfidele , async (req, res) => {
    if (req.body.pin != null) {
-       res.produits.pin = req.body.pin
+       res.cardfideles.pin = req.body.pin
    }
    
    if (req.body.reduction != null) {
-       res.produits.reduction = req.body.reduction
+       res.cardfideles.reduction = req.body.reduction
    }
 
    try {

@@ -26,6 +26,8 @@ arrLang = {
         "cc" : "CARTE CREDIT",
         "cash" : "PAYER EN ESPÈCES"
     }
+  
+
 }
 
 function translate() {
@@ -36,3 +38,4 @@ function translate() {
         elements.item(index).innerHTML = arrLang[lang][elements.item(index).getAttribute('key')];
     }
 }
+

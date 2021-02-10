@@ -25,7 +25,8 @@ router.post('/', async (req, res) => {
        quantite: req.body.quantite,
        tableserv: req.body.tableserv,
        promocode: req.body.promocode,
-       cardfidele: req.body.cardfidele
+       cardfidele: req.body.cardfidele,
+       location: req.body.location
    })
    try {
        const newcommande = await commandes.save()

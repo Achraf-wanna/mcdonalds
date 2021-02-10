@@ -30,6 +30,10 @@ const commandeSchema = new mongoose.Schema({
     cardfidele : {
         type: String,
         
+    },
+    location : {
+        type : String,
+        required: true
     }
 
 
