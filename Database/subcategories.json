@@ -1,0 +1,114 @@
+[{
+  "_id": {
+    "$oid": "601d53ec8fee6c12b005e88b"
+  },
+  "name": "Maxi Best Of ",
+  "img": "maxi best.png",
+  "catid": "601d2e852d01f842b8e84d2c",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "601d540caa32c83c68b5ac8d"
+  },
+  "name": "Best Of",
+  "img": "best of.png",
+  "catid": "601d2e852d01f842b8e84d2c"
+},{
+  "_id": {
+    "$oid": "601d540caa32c83c68b5ac8e"
+  },
+  "name": "Happy Meal",
+  "img": "happym.png",
+  "catid": "601d2e852d01f842b8e84d2c"
+},{
+  "_id": {
+    "$oid": "601d540caa32c83c68b5ac8f"
+  },
+  "name": "Other(Menu)",
+  "img": "other.png",
+  "catid": "601d2e852d01f842b8e84d2c"
+},{
+  "_id": {
+    "$oid": "601d638faa32c83c68b5ac90"
+  },
+  "name": "Other(Sandwish)",
+  "img": "other.png",
+  "catid": "601d2e912d01f842b8e84d2d"
+},{
+  "_id": {
+    "$oid": "601d6a7baa32c83c68b5ac91"
+  },
+  "name": "Menu cheese",
+  "img": "mcheese.png",
+  "catid": "601d2e9d2d01f842b8e84d2e"
+},{
+  "_id": {
+    "$oid": "601d6a7baa32c83c68b5ac92"
+  },
+  "name": "Menu Burger",
+  "img": "mburger.png",
+  "catid": "601d2e9d2d01f842b8e84d2e"
+},{
+  "_id": {
+    "$oid": "601d6a7baa32c83c68b5ac93"
+  },
+  "name": "McNuggets",
+  "img": "mcnugg.png",
+  "catid": "601d2e9d2d01f842b8e84d2e"
+},{
+  "_id": {
+    "$oid": "601d6a7baa32c83c68b5ac94"
+  },
+  "name": "Other(Petit faim)",
+  "img": "other.png",
+  "catid": "601d2e9d2d01f842b8e84d2e"
+},{
+  "_id": {
+    "$oid": "601d6a7baa32c83c68b5ac95"
+  },
+  "name": "Other(Salade)",
+  "img": "other.png",
+  "catid": "601d2ea62d01f842b8e84d2f"
+},{
+  "_id": {
+    "$oid": "601d6a7baa32c83c68b5ac96"
+  },
+  "name": "McFlurry",
+  "img": "mflurry.png",
+  "catid": "601d2eae2d01f842b8e84d30"
+},{
+  "_id": {
+    "$oid": "601d6a7baa32c83c68b5ac97"
+  },
+  "name": "Other(Dessert)",
+  "img": "other.png",
+  "catid": "601d2eae2d01f842b8e84d30"
+},{
+  "_id": {
+    "$oid": "601d6a7baa32c83c68b5ac98"
+  },
+  "name": "Soda",
+  "img": "boisson.png",
+  "catid": "601d2eb42d01f842b8e84d31"
+},{
+  "_id": {
+    "$oid": "601d6a7baa32c83c68b5ac99"
+  },
+  "name": "Café",
+  "img": "cafe.png",
+  "catid": "601d2eb42d01f842b8e84d31"
+},{
+  "_id": {
+    "$oid": "601d6a7baa32c83c68b5ac9a"
+  },
+  "name": "Other(Frite)",
+  "img": "other.png",
+  "catid": "601d2ebd2d01f842b8e84d32"
+},{
+  "_id": {
+    "$oid": "601d6a7baa32c83c68b5ac9b"
+  },
+  "name": "Other(Sauce)",
+  "img": "other.png",
+  "catid": "601d2ec42d01f842b8e84d33"
+}]
